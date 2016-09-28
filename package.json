@@ -1,0 +1,51 @@
+{
+    "name": "ppx_tools-actual",
+    "exportedEnvVars": {
+        "ppx_tools_version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "5.0.04020"
+        },
+        "FINDLIB": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/lib"
+        },
+        "version": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "5.0.04020"
+        },
+        "ppx_tools_enable": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "enable"
+        },
+        "PATH": {
+            "global": true,
+            "resolveAsRelativePath": true,
+            "globalCollisionBehavior": "joinPath",
+            "val": "./_build/ocamlfind/bin"
+        },
+        "ppx_tools_installed": {
+            "global": true,
+            "globalCollisionBehavior": "clobber",
+            "val": "true"
+        }
+    },
+    "version": "5.0.04020",
+    "dependencies": {
+        "substs": "https://github.com/yunxing/substs.git",
+        "@opam-alpha/ocamlfind": ">= 1.5.0",
+        "nopam": "https://github.com/yunxing/nopam.git",
+        "opam-installer-bin": "https://github.com/yunxing/opam-installer-bin.git",
+        "dependency-env": "https://github.com/npm-ml/dependency-env.git"
+    },
+    "scripts": {
+        "postinstall": "eval $(dependencyEnv) && nopam && make all && make install && (opam-installer --prefix=$opam_prefix || true)"
+    },
+    "peerDependencies": {
+        "@opam-alpha/ocaml": ">= 4.02.0 < 4.03.0"
+    }
+}
